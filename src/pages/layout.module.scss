@@ -1,0 +1,118 @@
+@use "sass:map";
+
+@use '@/_colors.scss' as colors;
+
+$primary: map.get(colors.$theme, primary);
+$secondary: map.get(colors.$theme, secondary);
+
+.navbar{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+
+    background-color: map.get($primary, light);
+    color: map.get($primary, contrast, light);
+    border-color: map.get($primary, light);
+}
+
+.navbar > *{
+    flex: 200px 1 1;
+}
+
+.navbar-left{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+.navbar-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-right{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 20px;
+}
+
+.navbar-right *{
+    margin-left: 0.5em;
+}
+
+.nav-button{
+    background-color: map.get($primary, light);
+    color: map.get($primary, contrast, light);
+    border-color: map.get($primary, light);
+    
+    text-decoration: none;
+    background-color: transparent;
+    border-width: 0 0 6px 0;
+    border-bottom-style: solid;
+    padding: 12px 20px;
+    height: fit-content;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+}
+
+.nav-button:hover{
+    background-color: map.get($primary, medium);
+    color: map.get($primary, contrast, medium);
+    border-color: map.get($primary, medium);
+}
+
+.nav-button.active{
+    border-color: map.get($secondary, medium);
+
+    border-bottom-width: 6px;
+    border-bottom-style: solid;
+    margin-bottom: 0px;
+}
+
+.logo{
+    aspect-ratio: 1;
+    width: 60px;
+}
+
+.dropdown{
+    position: relative;
+
+    &:hover{
+        .dropdown-content{
+            display: flex;
+            flex-direction: column;
+            *{
+                display: block;
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.dropdown-content{
+    position: absolute;
+    top: calc(100%);
+    right: 0;
+    display: none;
+    animation: growDown 300ms;
+    transform-origin: top center;
+    *{
+        background-color: aliceblue;
+        padding: 10px 15px;
+        border: 1px solid gray;
+        display: none;
+    }
+}
+
+@keyframes growDown {
+    0% {
+        transform: scaleY(0)
+    }
+    100% {
+        transform: scaleY(1)
+    }
+}

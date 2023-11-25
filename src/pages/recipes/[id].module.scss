@@ -1,0 +1,28 @@
+@use "sass:map";
+
+@use '@/_colors.scss' as colors;
+
+$primary: map.get(colors.$theme, primary);
+$secondary: map.get(colors.$theme, secondary);
+
+.container{
+    margin: 40px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.header-container{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 12px;
+
+    span{
+        color: #aaa;
+    }
+}
+
+.img{
+    max-width: 100%;
+}

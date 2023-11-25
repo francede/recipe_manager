@@ -1,0 +1,43 @@
+@use "sass:map";
+
+@use '@/_colors.scss' as colors;
+
+$primary: map.get(colors.$theme, primary);
+$secondary: map.get(colors.$theme, secondary);
+
+.chip-list{
+    display: flex;
+    gap: 8px;
+}
+
+.chip{
+    background-color: map-get($secondary, medium);
+    width: fit-content;
+    padding: 6px 2px 6px 12px;
+    border-radius: 18px;
+    display: flex;
+    gap: 2px;
+    align-items: center;
+    
+    *{
+        color: map-get($secondary, contrast, medium);
+    }
+}
+
+.chip > span{
+    padding-bottom: 2px;
+}
+
+.close-button{
+    border: none;
+    cursor: pointer;
+    background-color: #0000;
+    padding: 3px;
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+
+    &:hover{
+        background-color: #0001;
+    }
+}

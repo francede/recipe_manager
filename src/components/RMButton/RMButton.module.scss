@@ -1,0 +1,39 @@
+@use "sass:map";
+
+@use '@/_colors.scss' as colors;
+
+@mixin theme($palette){
+    background-color: map.get($palette, medium);
+    color: map.get($palette, contrast, medium);
+
+
+    &:hover{
+        background-color: map.get($palette, dark);
+        color: map.get($palette, contrast, dark);
+    }
+}
+
+.button{
+    all: unset;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    border: 0;
+    width: fit-content;
+    cursor: pointer;
+    transition: 200ms;
+    display: flex;
+    text-decoration: none;
+    align-items: center
+}
+
+.theme-primary{
+    @include theme(map.get(colors.$theme, primary));
+}
+
+.theme-secondary{
+    @include theme(map.get(colors.$theme, secondary));
+}
+
+.theme-error{
+    @include theme(map.get(colors.$theme, error));
+}

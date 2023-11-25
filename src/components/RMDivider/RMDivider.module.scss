@@ -1,0 +1,15 @@
+@use "sass:map";
+
+@use '@/_colors.scss' as colors;
+
+.divider{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    & > div{
+        width: 90%;
+        border-top: 1px solid #ccc;
+    }
+}

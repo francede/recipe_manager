@@ -1,0 +1,24 @@
+@use "sass:map";
+
+@use '@/_colors.scss' as colors;
+
+$primary: map.get(colors.$theme, primary);
+$secondary: map.get(colors.$theme, secondary);
+
+.card{
+    box-shadow: 2px 2px 5px #aaaaaa;
+    width: 300px;
+    padding: 12px;
+    background-color: map.get($primary, 50);
+
+    .card-title{
+        color: map.get($secondary, medium);
+        font-size: 1.25rem;
+    }
+}
+
+.button-inner{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}

@@ -1,0 +1,47 @@
+@use "sass:map";
+
+@use '@/_colors.scss' as colors;
+
+.tooltip-container{
+    position: absolute;
+    z-index: 8;
+    bottom: 60%;
+    left: 50%;
+    transition: all 0.5s;
+    display: flex;
+    justify-content: center;
+    min-height: 2rem;
+}
+
+.tooltip-text{
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: 0.875rem;
+    overflow: hidden;
+    white-space: nowrap;
+
+    opacity: 0%;
+    
+    border-radius: 8px;
+
+    padding: 0px;
+
+    width: 80%;
+
+    cursor: default;
+    transition: all 0.5s;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tooltip-container.open{
+    bottom: 120%;
+}
+
+.tooltip-container.open .tooltip-text{
+    width: 100%;
+    opacity: 60%;
+}

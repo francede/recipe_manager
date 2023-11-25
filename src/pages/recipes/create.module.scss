@@ -1,0 +1,77 @@
+@use "sass:map";
+
+@use '@/_colors.scss' as colors;
+
+$primary: map.get(colors.$theme, primary);
+$secondary: map.get(colors.$theme, secondary);
+
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.img-container{
+    border: 1px solid #444;
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover > :not(img){
+        opacity: 100%;
+    }
+
+    & > :not(img){
+        width: fit-content;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        translate: -50% -50%;
+        opacity: 100%;
+        transition: all 0.3s ease-in-out;
+    }
+
+    img + :not(img){
+        opacity: 60%;
+    }
+}
+
+.ingredient-list{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.ingredient-list-item{
+    display: flex; 
+    align-items: center;
+    gap: 6px
+}
+
+.move-buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    button{
+        border: none;
+        background-color: #fff;
+        width: 24px;
+        height: 24px;
+        border-radius: 12px;
+        transition: 0.2s all;
+
+        &:not(:disabled){
+            cursor: pointer;
+        }
+
+        &:hover:not(:disabled){
+            background-color: #ddd;
+        }
+    }
+}

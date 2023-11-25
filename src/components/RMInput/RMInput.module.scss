@@ -1,0 +1,43 @@
+@use "sass:map";
+
+@use '@/_colors.scss' as colors;
+
+.input{
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    outline: none;
+    resize: none;
+    width: 200px;
+}
+
+input[type="number"].input{
+    width: 100px;
+}
+
+textarea.input{
+    height: 100%;
+}
+
+.input-container{
+    position: relative;
+    width: fit-content;
+}
+
+.menu-container{
+    z-index: 10;
+    width: 100%;
+    border-radius: 8px;
+    position: absolute;
+    background-color: #fff;
+    cursor: pointer;
+    border: 1px solid #ccc;
+}
+
+.menu-container > div{
+    padding: 6px;
+
+    &:hover{
+        background-color: #eee;
+    }
+}
